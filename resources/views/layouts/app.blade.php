@@ -207,7 +207,7 @@
             <div class="dropdown-divider"></div>
 
             <a class="dropdown-item" href="#"><i class=" ti-lock"></i> Lock Account</a>
-            <a class="dropdown-item" href="#"><i class=" ti-unlock"></i> Logout</a>
+            <a class="dropdown-item" href="{{ route('login') }}"><i class=" ti-unlock"></i> Logout</a>
         </div>
     </li>
 
@@ -224,7 +224,7 @@
 </header>
 <!--===========header end===========-->
 
-    @yield('section')
+    @yield('mainsection')
 
     <!--===========footer start===========-->
     <footer class="app-footer">
