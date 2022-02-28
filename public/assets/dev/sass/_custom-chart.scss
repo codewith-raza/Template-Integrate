@@ -1,0 +1,130 @@
+
+/*----------------------------------
+custom chart style
+----------------------------------*/
+
+.aws-container {
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+//  margin: 0px auto;
+//  width: 560px;
+  background-color: $brand-primary;
+}
+.aws-container .aws-content {
+  padding: 32px;
+}
+.aws-container .aws-content nav {
+  font-size: 16px;
+  margin-bottom: 60px;
+}
+.aws-container .aws-content nav span {
+  color: $brand-white;
+  cursor: pointer;
+//  text-transform: uppercase;
+  margin: 0 10px;
+
+}
+.aws-container .aws-content nav span.aws-active {
+  color: $brand-white;
+//  border: 1px solid rgba(0,0,0,.2);
+  background: rgba(0,0,0,.2);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.aws-container .aws-details {
+  height: 100px;
+  background-color: #fefefe;
+  position: relative;
+  overflow: hidden;
+}
+.aws-container .aws-details:after {
+  content: " ";
+  position: absolute;
+  width: 1px;
+  background-color: #e8e8e8;
+  z-index: 1;
+  right: 50%;
+  top: 26px;
+  bottom: 28px;
+  @media (max-width: 575px) {
+    background: none;
+  }
+}
+.aws-container .aws-details .aws-block-info {
+  padding: 26px 15px 28px;
+}
+.aws-container .aws-details .aws-block-info h3 {
+  margin: 0px 0px 5px;
+  color: #4a4a4a;
+  font-size: 24px;
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+.aws-container .aws-details .aws-block-info h3[data-status] {
+  position: relative;
+}
+.aws-container .aws-details .aws-block-info h3[data-status]:before {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  position: absolute;
+  top: 8px;
+}
+.aws-container .aws-details .aws-block-info h3[data-status] span {
+  padding-left: 22px;
+}
+.aws-container .aws-details .aws-block-info h3[data-status=up]:before {
+  border-bottom: 8px solid $brand-primary;
+}
+.aws-container .aws-details .aws-block-info h3[data-status=down]:before {
+  border-top: 8px solid $brand-primary;
+}
+.aws-container .aws-details .aws-block-info h5 {
+  margin: 0px;
+  color: #9d9c9c;
+  font-size: 12px;
+}
+.aws-container .aws-tooltip {
+  box-shadow: 1px 1px 0.5px 0.5px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  z-index: 99;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 9px;
+  border-radius: 3px;
+  text-align: center;
+  width: 120px;
+}
+.aws-container .aws-tooltip.aws-for-file {
+  width: 160px;
+}
+.aws-container .aws-tooltip:after {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid rgba(255, 255, 255, 0.8);
+  position: absolute;
+  left: 50%;
+  margin-left: -6px;
+  bottom: -8px;
+}
+.aws-container .aws-tooltip span {
+  display: block;
+}
+.aws-container .aws-tooltip span:nth-child(1) {
+  font-size: 11px !important;
+}
+.aws-container .aws-tooltip span:nth-child(2) {
+  font-size: 13px !important;
+}
+
+
+.jqstooltip {
+  width:35px;
+  height:22px!important;
+}

@@ -1,0 +1,76 @@
+
+/*----------------------------------
+type style
+----------------------------------*/
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.app {
+//  background: #f2f9ff;
+//  background: #f2f6f9;
+  background: #f3f6f9;
+}
+
+
+a, a:hover {
+  transition: all .3s ;
+  outline: 0;
+  text-decoration: none;
+}
+
+a.default-color, a.default-color:hover,
+.default-color a, .default-color a:hover{
+  text-decoration: none;
+}
+
+a.default-color:hover,
+.default-color a:hover,
+a.gray-color:hover,
+.gray-color a:hover {
+  color: $brand-primary;
+}
+
+a.gray-color,
+.gray-color a {
+  color: lighten($brand-gray, 40%);
+}
+
+.btn {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-lg {
+  font-size: 18px;
+}
+
+.btn-sm {
+  font-size: 12px;
+}
+
+
+button, button:focus, button:hover{
+  outline: 0;
+}
+
+strong {
+  font-weight: 600;
+}
+
+
+h1,h2,h3,h4,h5,h6, .default-color, .default-color a {
+  color: $brand-gray;
+}
+
+.breadcrumb {
+  background: transparent;
+  font-size: 12px;
+}

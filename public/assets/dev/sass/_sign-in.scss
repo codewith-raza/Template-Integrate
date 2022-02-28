@@ -1,0 +1,61 @@
+
+/*----------------------------------
+sign in
+----------------------------------*/
+
+.brand{
+  margin-bottom: 50px;
+  display: block;
+}
+
+.form-signin {
+  max-width: 450px;
+  padding: 30px;
+  margin: 15% auto 15%;
+  background: $brand-white;
+  box-shadow: 0 10px 70px 0 rgba(108, 158, 195, .25);
+}
+
+.form-signin .form-signin-heading {
+  font-size: 16px;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 8px 20px;
+  font-size: 13px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.signin-gray-bg {
+  background: #f2f6f9;
+}
+
+
+.signin-body-background {
+  background-image: url("../img/signin-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+//  width: 100%;
+}
+
+
+.form-lock {
+  max-width: 400px;
+  margin: 15% auto;
+  background: $brand-white;
+  position: relative;
+}

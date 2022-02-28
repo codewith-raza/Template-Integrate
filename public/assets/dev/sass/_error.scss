@@ -1,0 +1,33 @@
+
+/*----------------------------------
+404 error style
+----------------------------------*/
+
+.error-wrap {
+  margin-top: 30%;
+  display: inline-block;
+  position: relative;
+  background: rgba(255,255,255,.9);
+  z-index: 10;
+  padding: 20px;
+
+  h1 {
+    font-size: 100px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .btn {
+    padding: 12px 40px;
+    font-size: 14px;
+  }
+
+}
+
+.error-img {
+  position: absolute;
+  right: 5%;
+  bottom: 3%;
+  left: auto;
+}
+
+

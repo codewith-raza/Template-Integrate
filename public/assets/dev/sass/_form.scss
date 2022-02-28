@@ -1,0 +1,853 @@
+
+/*----------------------------------
+form style
+----------------------------------*/
+
+.form-control {
+  line-height: 2;
+//  border-color: #E1EAF0;
+  border-color: $border-color;
+  font-size: 13px;
+}
+
+
+.form-text {
+  font-size: 0.85rem;
+}
+
+.form-group > label {
+  font-weight: 400;
+}
+
+.col-form-label {
+  padding-top: calc(.375rem + 5px);
+}
+
+select.form-control:not([size]):not([multiple]) {
+//  height: calc(2.25rem + 5px);
+}
+
+.bd-example>.form-control+.form-control {
+  margin-top: 1rem;
+}
+
+
+.form-control,
+.select-wrapper{
+  &:focus{
+    border-color: $brand-primary;
+    box-shadow: none;
+  }
+}
+
+.form-control-square {
+  border-radius: 0;
+}
+
+.form-control-pill,
+select.form-control-pill{
+  border-radius: 40px;
+}
+
+select.form-control-square,
+.select-wrapper.form-control-pill select.form-control{
+  border:none;
+}
+
+.select-wrapper {
+  display: inherit;
+//  border: 1px solid #E1EAF0;
+  border: 1px solid $border-color;
+  border-radius: 0px;
+  padding: 0 10px;
+  &:focus{
+    border: 1px solid $brand-primary;
+    outline: none;
+  }
+}
+
+.select-wrapper.form-control-pill {
+  display: inherit;
+//  border: 1px solid #E1EAF0;
+  border: 1px solid $border-color;
+  border-radius: 40px;
+  padding: 0 15px;
+  &:focus{
+    border: 1px solid $brand-primary;
+    outline: none;
+  }
+}
+
+
+.input-group-addon-bg-none {
+  background: transparent;
+}
+
+.input-group-addon {
+//  border: 1px solid #e1eaf0;
+  border: 1px solid $border-color;
+}
+
+
+.form-check-input {
+  margin-top: .4rem;
+}
+
+.custom-control-input:disabled~.custom-control-indicator {
+  background-color: #e9ecef !important;
+}
+
+
+/*---------------------------
+  checkbox & radio
+ ---------------------------*/
+
+.control {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-weight: normal;
+  line-height: normal;
+}
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.control__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #fff;
+//  border: 1px solid #e5e4e5;
+  border: 1px solid $border-color;
+  border-radius: 3px;
+}
+.control--radio .control__indicator {
+  border-radius: 50%;
+}
+//.control:hover input ~ .control__indicator,
+//.control input:focus ~ .control__indicator {
+//  background: $primary-color;
+//}
+.control input:checked ~ .control__indicator {
+  background: $brand-primary;
+  border: none;
+}
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+  background: $brand-primary;
+}
+.control input:disabled ~ .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.control__indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+.control input:checked ~ .control__indicator:after {
+  display: block;
+}
+.control--checkbox .control__indicator:after {
+  top: 3px;
+  left: 7px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
+}
+.control--radio .control__indicator:after {
+  left: 6px;
+  top: 6px;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+.control--radio input:disabled ~ .control__indicator:after {
+  background: #7b7b7b;
+}
+
+.control-outline input:checked ~ .control__indicator {
+  border: none;
+  background: $brand-primary;
+}
+
+// primary outline
+
+.control.control-outline input:checked ~ .control__indicator {
+  border:1px solid $brand-primary;
+  background: transparent;
+}
+.control.control-outline:hover input:not([disabled]):checked ~ .control__indicator,
+.control.control-outline input:checked:focus ~ .control__indicator {
+  border:1px solid $brand-primary;
+  background: transparent;
+}
+.control-outline.control--checkbox .control__indicator:after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border: solid $brand-primary;
+  border-width: 0 2px 2px 0;
+}
+
+
+//success outline
+
+.control.control-outline.control-outline-success input:checked ~ .control__indicator {
+  border:1px solid $brand-success;
+  background: transparent;
+}
+.control.control-outline.control-outline-success:hover input:not([disabled]):checked ~ .control__indicator,
+.control.control-outline.control-outline-success input:checked:focus ~ .control__indicator {
+  border:1px solid $brand-success;
+  background: transparent;
+}
+.control-outline.control-outline-success.control--checkbox .control__indicator:after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border: solid $brand-success;
+  border-width: 0 2px 2px 0;
+}
+
+
+//warning outline
+
+.control.control-outline.control-outline-warning input:checked ~ .control__indicator {
+  border:1px solid $brand-warning;
+  background: transparent;
+}
+.control.control-outline.control-outline-warning:hover input:not([disabled]):checked ~ .control__indicator,
+.control.control-outline.control-outline-warning input:checked:focus ~ .control__indicator {
+  border:1px solid $brand-warning;
+  background: transparent;
+}
+.control-outline.control-outline-warning.control--checkbox .control__indicator:after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border: solid $brand-warning;
+  border-width: 0 2px 2px 0;
+}
+
+
+//danger outline
+
+.control.control-outline.control-outline-danger input:checked ~ .control__indicator {
+  border:1px solid $brand-danger;
+  background: transparent;
+}
+.control.control-outline.control-outline-danger:hover input:not([disabled]):checked ~ .control__indicator,
+.control.control-outline.control-outline-danger input:checked:focus ~ .control__indicator {
+  border:1px solid $brand-danger;
+  background: transparent;
+}
+.control-outline.control-outline-danger.control--checkbox .control__indicator:after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border: solid $brand-danger;
+  border-width: 0 2px 2px 0;
+}
+
+
+
+//info outline
+
+.control.control-outline.control-outline-info input:checked ~ .control__indicator {
+  border:1px solid $brand-info;
+  background: transparent;
+}
+.control.control-outline.control-outline-info:hover input:not([disabled]):checked ~ .control__indicator,
+.control.control-outline.control-outline-info input:checked:focus ~ .control__indicator {
+  border:1px solid $brand-info;
+  background: transparent;
+}
+.control-outline.control-outline-info.control--checkbox .control__indicator:after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border: solid $brand-info;
+  border-width: 0 2px 2px 0;
+}
+
+
+
+// radio outline
+
+.control-outline.control--radio .control__indicator:after {
+  border-radius: 50%;
+  background: $brand-primary;
+}
+
+
+.control-outline.control-outline-info.control--radio .control__indicator:after {
+  border-radius: 50%;
+  background: $brand-info;
+}
+
+.control-outline.control-outline-success.control--radio .control__indicator:after {
+  border-radius: 50%;
+  background: $brand-success;
+}
+
+.control-outline.control-outline-warning.control--radio .control__indicator:after {
+  border-radius: 50%;
+  background: $brand-warning;
+}
+.control-outline.control-outline-danger.control--radio .control__indicator:after {
+  border-radius: 50%;
+  background: $brand-danger;
+}
+
+
+
+.control--checkbox.control-solid .control__indicator:after {
+  top: 4px;
+  left: 8px;
+}
+
+// primary solid
+
+.control.control-solid.control-solid-primary input:checked ~ .control__indicator {
+  background: $brand-primary;
+}
+
+// info solid
+.control.control-solid.control-solid-info input:checked ~ .control__indicator {
+  background: $brand-info;
+}
+
+// success solid
+.control.control-solid.control-solid-success input:checked ~ .control__indicator {
+  background: $brand-success;
+}
+
+// warning solid
+.control.control-solid.control-solid-warning input:checked ~ .control__indicator {
+  background: $brand-warning;
+}
+
+// danger solid
+.control.control-solid.control-solid-danger input:checked ~ .control__indicator {
+  background: $brand-danger;
+}
+
+
+// radio solid
+
+.control-solid.control--radio .control__indicator:after {
+  background: $brand-primary;
+}
+
+
+.control-solid.control-solid-info.control--radio .control__indicator:after {
+  background: $brand-info;
+}
+
+.control-solid.control-solid-success.control--radio .control__indicator:after {
+  background: $brand-success;
+}
+
+.control-solid.control-solid-warning.control--radio .control__indicator:after {
+  background: $brand-warning;
+}
+.control-solid.control-solid-danger.control--radio .control__indicator:after {
+  background: $brand-danger;
+}
+
+
+
+/*---------------------------
+  dropzone
+ ---------------------------*/
+
+
+.dropzone {
+  background: white;
+  border-radius: 4px;
+  border: 2px dashed $border-color;
+  border-image: none;
+//  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+}
+
+.dropzone-primary {
+  border: 2px dashed $brand-primary;
+}
+
+.dropzone-info {
+  border: 2px dashed $brand-info;
+}
+
+.dropzone-success {
+  border: 2px dashed $brand-success;
+}
+
+.dropzone-warning {
+  border: 2px dashed $brand-warning;
+}
+
+.dropzone-danger {
+  border: 2px dashed $brand-danger;
+}
+
+
+/*---------------------------
+  touchspin
+ ---------------------------*/
+
+
+
+.btn-border {
+  border-color: $border-color;
+  &:hover{
+    background: #f1f3f4;
+  }
+}
+
+.bootstrap-touchspin .input-group-btn-vertical>.btn {
+  padding: 10px 15px;
+}
+
+.bootstrap-touchspin .input-group-btn-vertical {
+  width: auto;
+  display: inline-block;
+}
+
+.bootstrap-touchspin .input-group-btn-vertical i {
+  font-size: .8rem;
+}
+.bootstrap-touchspin .input-group-btn-vertical i {
+  top: 5px;
+  left: 10px;
+}
+
+.bootstrap-touchspin .form-control.bootstrap-touchspin-vertical-btn {
+  border-top-left-radius: 0.25rem!important;
+  border-bottom-left-radius: 0.25rem!important;
+}
+
+
+/*---------------------------
+ multiple select
+ ---------------------------*/
+
+.ms-container .ms-list {
+//  border: 1px solid #e1eaf0;
+  border: 1px solid $border-color;
+  box-shadow: none;
+}
+
+.ms-selection, .ms-selectable {
+  .search-input {
+    margin-bottom: 20px;
+  }
+}
+
+.ms-container .ms-list.ms-focus{
+  border-color: $brand-primary;
+  box-shadow: none;
+  outline: 0;
+  outline: thin dotted \9;
+}
+
+
+.ms-container .ms-selectable li.ms-hover,
+.ms-container .ms-selection li.ms-hover{
+  background-color: $brand-primary;
+}
+
+
+/*---------------------------
+ ion range slider
+ ---------------------------*/
+
+
+.irs-line-mid,
+.irs-line-left,
+.irs-line-right,
+.irs-bar,
+.irs-bar-edge,
+.irs-slider {
+  background: $border-color
+}
+
+.irs {
+  height: 40px;
+}
+.irs-with-grid {
+  height: 60px;
+}
+.irs-line {
+  height: 8px; top: 25px;
+}
+.irs-line-left {
+  height: 8px;
+}
+.irs-line-mid {
+  height: 8px;
+}
+.irs-line-right {
+  height: 8px;
+}
+
+.irs-bar {
+  height: 8px; top: 25px;
+  background: #ed5565;
+}
+.irs-bar-edge {
+  top: 25px;
+  height: 8px; width: 9px;
+  background: #ed5565;
+}
+
+.irs-shadow {
+  height: 3px; top: 34px;
+  background: #000;
+  opacity: 0.25;
+}
+.lt-ie9 .irs-shadow {
+  filter: alpha(opacity=25);
+}
+
+.irs-slider {
+  width: 2px;
+  height: 14px;
+  top: 22px;
+  background: #ed5565;
+}
+.irs-slider.state_hover, .irs-slider:hover {
+  /*background-position: 0 -150px;*/
+}
+
+.irs-min, .irs-max {
+  color: #8d8d8d;
+  font-size: 10px;
+  line-height: 1.333;
+  text-shadow: none;
+  top: 0;
+  padding: 1px 3px;
+  background: $border-color;
+  border-radius: 2px;
+}
+
+.irs-from, .irs-to, .irs-single {
+  color: #fff;
+  font-size: 10px;
+  line-height: 1.333;
+  text-shadow: none;
+  padding: 1px 5px;
+  background: #ed5565;
+  border-radius: 10px;
+}
+.irs-from:after, .irs-to:after, .irs-single:after {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -3px;
+  overflow: hidden;
+  border: 3px solid transparent;
+  border-top-color: #ed5565;
+}
+
+
+.irs-grid-pol {
+  background: #e1e4e9;
+}
+.irs-grid-text {
+  color: #999;
+}
+
+.irs-disabled {
+}
+
+
+/*primary color*/
+
+.ion-primary .irs-bar,
+.ion-primary .irs-bar-edge,
+.ion-primary .irs-slider,
+.ion-primary .irs-from,
+.ion-primary .irs-to,
+.ion-primary .irs-single {
+  background:$brand-primary;
+}
+
+.ion-primary .irs-from:after,
+.ion-primary .irs-to:after,
+.ion-primary .irs-single:after {
+  border-top-color:$brand-primary;
+}
+
+
+/*success color*/
+
+.ion-success .irs-bar,
+.ion-success .irs-bar-edge,
+.ion-success .irs-slider,
+.ion-success .irs-from,
+.ion-success .irs-to,
+.ion-success .irs-single {
+  background: $brand-success;
+}
+
+.ion-success .irs-from:after,
+.ion-success .irs-to:after,
+.ion-success .irs-single:after {
+  border-top-color: $brand-success;
+}
+
+
+
+/*info color*/
+
+.ion-info .irs-bar,
+.ion-info .irs-bar-edge,
+.ion-info .irs-slider,
+.ion-info .irs-from,
+.ion-info .irs-to,
+.ion-info .irs-single {
+  background: $brand-info;
+}
+
+.ion-info .irs-from:after,
+.ion-info .irs-to:after,
+.ion-info .irs-single:after {
+  border-top-color: $brand-info;
+}
+
+
+
+/*warning color*/
+
+.ion-warning .irs-bar,
+.ion-warning .irs-bar-edge,
+.ion-warning .irs-slider,
+.ion-warning .irs-from,
+.ion-warning .irs-to,
+.ion-warning .irs-single {
+  background: $brand-warning;
+}
+
+.ion-warning .irs-from:after,
+.ion-warning .irs-to:after,
+.ion-warning .irs-single:after {
+  border-top-color: $brand-warning;
+}
+
+
+
+/*danger color*/
+
+.ion-danger .irs-bar,
+.ion-danger .irs-bar-edge,
+.ion-danger .irs-slider,
+.ion-danger .irs-from,
+.ion-danger .irs-to,
+.ion-danger .irs-single {
+  background: $brand-danger;
+}
+
+.ion-danger .irs-from:after,
+.ion-danger .irs-to:after,
+.ion-danger .irs-single:after {
+  border-top-color: $brand-danger;
+}
+
+
+
+/*---------------------------
+ select 2
+ ---------------------------*/
+
+.select2-container--default .select2-selection--multiple, .select2-container--default .select2-selection--single {
+  border: 1px solid $border-color;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: $brand-black-alt;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  position: relative;
+  padding: 0.65rem 1rem;
+  line-height: 1.25;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered{
+  padding: 0rem .8rem;
+}
+
+.select2-container--default .select2-selection--single, .select2-container--default .select2-selection--multiple {
+  min-height: 40px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 7px;
+  right: 7px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__clear {
+  right: 15px;
+  top: 1px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice,
+.select2-container--default.select2-container--disabled .select2-selection--single{
+  background-color: #f2f6f9;
+  border: 1px solid $border-color;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  border: 1px solid $border-color;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.select2-container, .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--multiple {
+  outline: none;
+}
+
+.select2-dropdown {
+  border: none;
+  box-shadow: 0 10px 70px 0 rgba(108, 158, 195, .25);
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: $brand-primary;
+  color: white;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+  background-color: #f2f6f9;
+  color: $brand-black-alt;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: 1px $brand-primary solid;
+  outline: 0;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple, .select2-container--default.select2-container--focus .select2-selection--single, .select2-container--default.select2-container--open .select2-selection--multiple, .select2-container--default.select2-container--open .select2-selection--single{
+  border-color: $brand-primary;
+}
+
+
+
+/*---------------------------
+ form validation
+ ---------------------------*/
+
+.has-info {
+  color: $brand-info;
+  .form-text {
+    color: $brand-info;
+  }
+  .has-input {
+    border-color: $brand-info;
+  }
+}
+.has-success {
+  color: $brand-success;
+  .form-text {
+    color: $brand-success;
+  }
+  .has-input {
+    border-color: $brand-success;
+  }
+}
+.has-warning {
+  color: $brand-warning;
+  .form-text {
+    color: $brand-warning;
+  }
+  .has-input {
+    border-color: $brand-warning;
+  }
+}
+.has-danger {
+  color: $brand-danger;
+  .form-text {
+    color: $brand-danger;
+  }
+  .has-input {
+    border-color: $brand-danger;
+  }
+}
+
+.feedback-icon-form {
+  .form-control-feedback {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+  }
+  .has-feedback .form-control-feedback {
+    right: 15px;
+  }
+}
+
+.has-error {
+  .help-block {
+    color: $brand-danger;
+  }
+}
+
+.error.help-block {
+  color: $brand-danger;
+}
+
+//semantic ui form
+
+.ui.form .field.error .input, .ui.form .field.error label, .ui.form .fields.error .field .input, .ui.form .fields.error .field label,
+.ui.form .field.error .checkbox:not(.toggle):not(.slider) .box, .ui.form .field.error .checkbox:not(.toggle):not(.slider) label, .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box, .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label{
+  color: $brand-danger;
+}
+
+.ui.grid>.row>.column {
+  text-align: right;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.ui.form .field.error input:not([type]), .ui.form .field.error input[type=text], .ui.form .field.error input[type=email], .ui.form .field.error input[type=search], .ui.form .field.error input[type=password], .ui.form .field.error input[type=date], .ui.form .field.error input[type=datetime-local], .ui.form .field.error input[type=tel], .ui.form .field.error input[type=time], .ui.form .field.error input[type=url], .ui.form .field.error input[type=number], .ui.form .field.error select, .ui.form .field.error textarea, .ui.form .fields.error .field input:not([type]), .ui.form .fields.error .field input[type=text], .ui.form .fields.error .field input[type=email], .ui.form .fields.error .field input[type=search], .ui.form .fields.error .field input[type=password], .ui.form .fields.error .field input[type=date], .ui.form .fields.error .field input[type=datetime-local], .ui.form .fields.error .field input[type=tel], .ui.form .fields.error .field input[type=time], .ui.form .fields.error .field input[type=url], .ui.form .fields.error .field input[type=number], .ui.form .fields.error .field select, .ui.form .fields.error .field textarea{
+  border-color: $brand-danger;
+}
+
+.ui.red.label, .ui.red.labels .label {
+  background-color: $brand-danger!important;
+  border-color: $brand-danger!important;
+  color: #fff!important;
+}
+
+.ui.form .field {
+  margin-bottom: 0;
+}
+
+
