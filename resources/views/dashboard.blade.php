@@ -1954,4 +1954,5 @@
     <!--init scripts-->
     <script src="{{asset('assets/js/scripts.js')}}"></script>
 
-@endsec
+@endsection
+

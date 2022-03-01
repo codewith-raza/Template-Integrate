@@ -1,4 +1,4 @@
-{{asset('<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <!--favicon icon-->
     <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
 
-    <title>Login Page</title>
+    <title>Registration Page</title>
 
     <!--google font-->
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
@@ -37,24 +37,47 @@
 
     <div class="container">
 
-        <form class="form-signin">
-            <a href="index.html" class="brand text-center">
-                <img src="{{asset('assets/img/logo-dark.png" srcset="assets/img/logo-dark@2x.png 2x" alt=""/>
+        <form class="form-signin" method="POST" action="{{ route('register') }}">
+            @csrf
+            <a href="#" class="brand text-center">
+                <img src="{{asset('assets/img/logo-dark.png')}}" srcset="assets/img/logo-dark@2x.png 2x" alt=""/>
             </a>
-            <h2 class="form-signin-heading">Forgotten Password ? </h2>
-            <span class="text-muted">Enter your email to reset your password:</span>
-            <div class="form-group mt-2">
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+            <h2 class="form-signin-heading">Please sign up</h2>
+            <div class="form-group">
+                <label for="name" class="sr-only">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Full Name">
             </div>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Request Password</button>
+            <div class="form-group">
+                <label for="email" class="sr-only">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required>
+            </div>
 
+            <div class="form-group">
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confrimpassword" class="sr-only">Confirm Password</label>
+                <input type="password" id="confrimpassword" name="confrimpassword" class="form-control" placeholder="Confirm Password" required>
+            </div>
+
+            <div class="checkbox mb-4 mt-4">
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">
+                        I Agree the <a href="#" class="default-color">terms and conditions.</a>
+                    </span>
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('Sign Up') }}</button>
             <div class="mt-4">
                 <span>
-                    Don't have an account yet ?
+                {{ __('Already registered ?') }}
                 </span>
-                <a href="signup.html" class="text-primary">Sign Up</a>
+                <a href="{{route('login')}}" class="text-primary">Sign In</a>
             </div>
         </form>
 
@@ -75,8 +98,6 @@
     <script src="assets/vendor/modernizr.js"></script>
     <![endif]-->
 
-    <!--init scripts-->
-    <script src="{{asset('assets/js/scripts.js')}}"></script>
 
 </body>
 </html>

@@ -37,19 +37,20 @@
 
     <div class="container">
 
-        <form class="form-signin" action="index.html">
+        <form class="form-signin" method="POST" action="{{ route('login') }}">
+            @csrf
             <a href="index.html" class="brand text-center">
                 <img src="{{asset('assets/img/logo-dark.png')}}" srcset="assets/img/logo-dark@2x.png 2x" alt=""/>
             </a>
             <h2 class="form-signin-heading">Please sign in</h2>
             <div class="form-group">
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                <label for="email" class="sr-only">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required>
             </div>
 
             <div class="form-group">
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
             </div>
 
             <div class="checkbox mb-4 mt-4">
@@ -57,18 +58,20 @@
                     <input type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">
-                        Remember me
+                    {{ __('Remember me') }}
                     </span>
                 </label>
-                <a href="forgot-password.html"  class="float-right text-muted">Forgot Password ?</a>
+                @if (Route::has('password.request'))
+                <a href="{{ route('password.request') }}"  class="float-right text-muted">{{ __('Forgot password ?') }}</a>
+                @endif
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('Sign In') }}</button>
 
             <div class="mt-4">
                 <span>
                     Don't have an account yet ?
                 </span>
-                <a href="signup.html" class="text-primary">Sign Up</a>
+                <a href="{{ route('register') }}" class="text-primary">Sign Up</a>
             </div>
         </form>
 

@@ -119,71 +119,20 @@
 <!--right side nav start-->
 <ul class="nav navbar-nav ml-auto">
 
+    @if (Route::has('login'))
+        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+            @auth
+                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+            @else
+                <a href="{{ route('login') }}" class="btn btn-primary btn-sm mt-0">Log in</a>
 
-    <li class="nav-item dropdown dropdown-slide d-md-down-none">
-        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <i class="ti-bell"></i>
-            <span class="badge badge-danger notification-alarm"> </span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-
-            <div class="dropdown-header pb-3">
-                <strong>You have 6 Notifications</strong>
-            </div>
-
-            <a href="#" class="dropdown-item">
-                <i class="icon-basket-loaded text-primary"></i> New order
-            </a>
-            <a href="#" class="dropdown-item">
-                <i class="icon-user-follow text-success"></i> New registered member
-            </a>
-            <a href="#" class="dropdown-item">
-                <i class=" icon-layers text-danger"></i> Server error report
-            </a>
-            <a href="#" class="dropdown-item">
-                <i class=" icon-note text-warning"></i> Database report
-            </a>
-
-            <a href="#" class="dropdown-item">
-                <i class=" icon-present text-info"></i> Order confirmation
-            </a>
-
+            @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="btn btn-danger btn-sm mt-0">Register</a>
+            @endif
+            @endauth
         </div>
-    </li>
-    <li class="nav-item dropdown dropdown-slide d-md-down-none">
-        <a class="nav-link nav-pill" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <i class=" ti-view-grid"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-menu-ql-gird">
-
-            <div class="dropdown-header pb-3">
-                <strong>Quick Links</strong>
-            </div>
-
-            <div class="quick-links-grid">
-                <a href="#" class="ql-grid-item">
-                    <i class="  ti-files text-primary"></i>
-                    <span class="ql-grid-title">New Task</span>
-                </a>
-                <a href="#" class="ql-grid-item">
-                    <i class="  ti-check-box text-success"></i>
-                    <span class="ql-grid-title">Assign Task</span>
-                </a>
-            </div>
-            <div class="quick-links-grid">
-                <a href="#" class="ql-grid-item">
-                    <i class="  ti-truck text-warning"></i>
-                    <span class="ql-grid-title">Create Orders</span>
-                </a>
-                <a href="#" class="ql-grid-item">
-                    <i class=" icon-layers text-info"></i>
-                    <span class="ql-grid-title">New Orders</span>
-                </a>
-            </div>
-
-        </div>
-    </li>
-
+        @endif
+    
     <li class="nav-item dropdown dropdown-slide">
         <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <img src="{{asset('assets/img/user.png')}}" alt="John Doe">
@@ -198,16 +147,13 @@
                     </div>
                 </div>
             </div>
+            <a class="dropdown-item" href="javascript:void" onclick="$('#logout-form').submit();">
+            <i class=" ti-unlock"></i>Logout
+            </a>
 
-            <a class="dropdown-item" href="#"><i class=" ti-reload"></i> Activity</a>
-            <a class="dropdown-item" href="#"><i class=" ti-email"></i> Message</a>
-            <a class="dropdown-item" href="#"><i class=" ti-user"></i> Profile</a>
-            <a class="dropdown-item" href="#"><i class=" ti-layers-alt"></i> Projects <span class="badge badge-primary">4</span> </a>
-
-            <div class="dropdown-divider"></div>
-
-            <a class="dropdown-item" href="#"><i class=" ti-lock"></i> Lock Account</a>
-            <a class="dropdown-item" href="{{ route('login') }}"><i class=" ti-unlock"></i> Logout</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </div>
     </li>
 
@@ -217,10 +163,11 @@
     </li>
     <li class="nav-item d-md-down-none">
         <a class="nav-link navbar-toggler right-sidebar-toggler" href="#"><i class="icon-options-vertical"></i></a>
-    </li>
+    </li> 
 </ul>
 
 <!--right side nav end-->
+
 </header>
 <!--===========header end===========-->
 
@@ -248,4 +195,3 @@
 
 </body>
 </html>
-
