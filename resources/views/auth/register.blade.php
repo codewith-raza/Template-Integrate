@@ -51,16 +51,18 @@
             <div class="form-group">
                 <label for="email" class="sr-only">Email address</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required>
+                
             </div>
 
             <div class="form-group">
                 <label for="password" class="sr-only">Password</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password"  required autocomplete="new-password">
+                
             </div>
 
             <div class="form-group">
-                <label for="confrimpassword" class="sr-only">Confirm Password</label>
-                <input type="password" id="confrimpassword" name="confrimpassword" class="form-control" placeholder="Confirm Password" required>
+                <label for="password_confirmation" class="sr-only">Confirm Password</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
             </div>
 
             <div class="checkbox mb-4 mt-4">

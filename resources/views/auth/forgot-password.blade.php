@@ -9,12 +9,10 @@
     <!--favicon icon-->
     <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
 
-    <title>Verify Email Page</title>
-    
+    <title>Forgot Page</title>
+
     <!--google font-->
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
 
     <!--common style-->
@@ -35,28 +33,32 @@
 </head>
 <body class="">
 
-            
+
     <div class="container">
-        
 
-        <form class="form-signin" method="POST" action="{{ route('verification.send') }}">
-            @csrf
-            
+        <form class="form-signin" method="POST" action="{{ route('password.email') }}">
+        @csrf
             <a href="index.html" class="brand text-center">
-                    <img src="{{asset('assets/img/logo-dark.png')}}" srcset="assets/img/logo-dark@2x.png 2x" alt=""/>
+                <img src="{{asset('assets/img/logo-dark.png')}}" srcset="assets/img/logo-dark@2x.png 2x" alt=""/>
             </a>
-            <div class="mb-4 text-sm text-gray-600">
-                {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+            <h2 class="form-signin-heading">Forgotten Password ? </h2>
+            <span class="text-muted">Enter your registered email to reset your password:</span>
+            <div class="form-group mt-2">
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
             </div>
-            @if (session('status') == 'verification-link-sent')
-            <div class="text-success">
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-            </div>
-             @endif
-            <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('Resend Verification Email') }}</button>
-        </form>
-    </div>
 
+            <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('Reset Password') }}</button>
+
+            <div class="mt-4">
+                <span>
+                    Don't have an account yet ?
+                </span>
+                <a href="{{ route('register') }}" class="text-primary">Sign Up</a>
+            </div>
+        </form>
+
+    </div>
     <!--===========login end===========-->
 
 

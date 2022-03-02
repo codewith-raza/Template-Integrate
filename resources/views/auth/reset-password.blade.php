@@ -1,48 +1,89 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="MHS">
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <!--favicon icon-->
+    <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
 
-        <form method="POST" action="{{ route('password.update') }}">
+    <title>Rest Password Page</title>
+
+    <!--google font-->
+    <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+
+    <!--common style-->
+    <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor/themify-icons/css/themify-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor/weather-icons/css/weather-icons.min.css')}}" rel="stylesheet">
+
+    <!--custom css-->
+    <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/vendor/html5shiv.js"></script>
+    <script src="assets/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+
+    <!--=========== start===========-->
+
+    <div class="container">
+
+        <form class="form-signin" method="POST" action="{{ route('password.update') }}">
             @csrf
-
+            <a href="#" class="brand text-center">
+                <img src="{{asset('assets/img/logo-dark.png')}}" srcset="assets/img/logo-dark@2x.png 2x" alt=""/>
+            </a>
             <!-- Password Reset Token -->
             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+            <h6 class="form-signin-heading">Email</h6>
+            <div class="form-group">
+                <label for="email" class="sr-only">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required>
+                
             </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
+            <h6 class="form-signin-heading">Password</h6>
+            <div class="form-group">
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password"  required autocomplete="new-password">
+                
             </div>
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
+            <h6 class="form-signin-heading">Confirm Password</h6>
+            <div class="form-group">
+                <label for="password_confirmation" class="sr-only">Confirm Password</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Reset Password') }}
-                </x-button>
-            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('Reset Password') }}</button>
         </form>
-    </x-auth-card>
-</x-guest-layout>
+    </div>
+    <!--========== end===========-->
+
+
+    <!-- Placed js at the end of the page so the pages load faster -->
+    <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/jquery-ui-1.12.1/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/popper.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/jquery-ui-touch/jquery.ui.touch-punch-improved.js')}}"></script>
+    <script class="include" type="text/javascript" src="{{asset('assets/vendor/jquery.dcjqaccordion.2.7.js')}}"></script>
+    <script src="{{asset('assets/vendor/jquery.scrollTo.min.js')}}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="assets/vendor/modernizr.js"></script>
+    <![endif]-->
+
+
+</body>
+</html>
