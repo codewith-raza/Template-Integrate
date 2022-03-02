@@ -52,10 +52,10 @@
                 
             </div>
 
-            <h6 class="form-signin-heading">Password</h6>
+            <h6 class="form-signin-heading">New Password</h6>
             <div class="form-group">
                 <label for="password" class="sr-only">Password</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Password"  required autocomplete="new-password">
+                <input type="password" id="password" name="password" class="form-control" placeholder="New Password"  required autocomplete="new-password">
                 
             </div>
 

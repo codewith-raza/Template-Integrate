@@ -44,8 +44,8 @@
             <h2 class="form-signin-heading">Forgotten Password ? </h2>
             <span class="text-muted">Enter your registered email to reset your password:</span>
             <div class="form-group mt-2">
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                <label for="email" class="sr-only">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required>
             </div>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('Reset Password') }}</button>
