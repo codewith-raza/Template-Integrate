@@ -9,13 +9,13 @@
         <nav class="sidebar-menu">
             <ul id="nav-accordion">
                 <li class="sub-menu">
-                    <a href="{{route('dashboard')}}" class="active">
+                    <a href="{{route('dashboard')}}" >
                         <i class="ti-home"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a href="{{ route('user') }}">
+                    <a href="{{ route('user') }}" class="active">
                         <i class=" icon-people"></i>
                         <span>Users</span>
                     </a>
@@ -66,11 +66,11 @@
             <div class="container-fluid p-0">
                 <div class="row">
                     <div class="col-8">
-                        <h4 class="mb-0"> Dashboard
+                        <h4 class="mb-0"> User Crud
                         </h4>
                         <ol class="breadcrumb mb-0 pl-0 pt-1 pb-0">
                             <li class="breadcrumb-item"><a href="#" class="default-color">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item active">User</li>
                         </ol>
                     </div>
                     <div class="col-4">

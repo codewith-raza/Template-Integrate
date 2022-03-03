@@ -13,6 +13,7 @@
 
     <!--google font-->
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  
 
 
     <!--common style-->
@@ -191,7 +192,7 @@
     <!--===========footer end===========-->
 
 
-    @yield('script')
+    @stack('script')
 
 </body>
 </html>
