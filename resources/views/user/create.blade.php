@@ -1,66 +1,70 @@
 @extends('layouts.app')
-
 @section('mainsection')
- 
-
 <!--main contents start-->
-    <main class="main-content">
-        <!--page title start-->
+<main class="main-content">
+    <!--page title start-->
         <div class="page-title">
             <div class="container-fluid p-0">
                 <div class="row">
                     <div class="col-8">
-                        <h4 class="mb-0"> Dashboard
+                        <h4 class="mb-0"> User Crud
                         </h4>
                         <ol class="breadcrumb mb-0 pl-0 pt-1 pb-0">
-                            <li class="breadcrumb-item"><a href="#" class="default-color">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">Home</a></li>
+                            <li class="breadcrumb-item active">User</li>
                         </ol>
                     </div>
                     <div class="col-4">
                         <div class="btn-group float-right ml-2">
-                            <button class="btn btn-primary btn-sm  mt-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Settings
-                            </button>
-                            
-                        </div>
-
-                        <div class="btn-group float-right">
-                            <button class="btn btn-danger btn-sm  mt-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Quick Action
-                            </button>
-                            
+                        <a class="btn btn-info" href="{{ url('user') }}"> Back</a> 
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!--page title end-->
-         <!-- state start-->
-         <div class="row">
-            <div class=" col-sm-12">
-                <div class="card card-shadow mb-4">
-                    <div class="card-header">
-                        <div class="card-title">
-                             Multiple Statistics
-                        </div>
-                     </div>
-                     <div class="card-body">
-                                <div id="multi-sates">
-                                    <div id="multi-states-container" style="height: 350px">
-                                    </div>
-                                </div>
+    <!--page title end-->
+    @section('content')
+    <div class="row">
+        <div class=" col-sm-12">
+            <div class="card card-shadow mb-4">
+                <div class="card-header">
+                    <div class="card-title">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
+                        @endif
+                        <form action="{{ route('user.store') }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label for="Name"> Name:</label>
+                                <input type="text" class="form-control" id="Name" placeholder="Enter Your Name" name="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="Email"> Email:</label>
+                                <input type="text" class="form-control" id="Email" placeholder="Enter Your Email" name="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">Password:</label>
+                                <textarea class="form-control" id="Password" name="Password" rows="10" placeholder="Password"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-danger">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- state end-->
-
-    </main>
+    </div>
+</main>
 <!--main contents end-->
-
 @endsection
+@endsection
+
 
 @push('script')
 
@@ -107,4 +111,3 @@
     <script src="{{asset('assets/js/scripts.js')}}"></script>
 
 @endpush
-

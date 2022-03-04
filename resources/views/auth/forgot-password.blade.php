@@ -9,7 +9,7 @@
     <!--favicon icon-->
     <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
 
-    <title>Rest Password Page</title>
+    <title>Forgot Page</title>
 
     <!--google font-->
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
@@ -33,42 +33,33 @@
 </head>
 <body class="">
 
-    <!--=========== start===========-->
 
     <div class="container">
 
-        <form class="form-signin" method="POST" action="{{ route('password.update') }}">
-            @csrf
-            <a href="#" class="brand text-center">
+        <form class="form-signin" method="POST" action="{{ route('password.email') }}">
+        @csrf
+            <a href="index.html" class="brand text-center">
                 <img src="{{asset('assets/img/logo-dark.png')}}" srcset="assets/img/logo-dark@2x.png 2x" alt=""/>
             </a>
-            <!-- Password Reset Token -->
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
-
-            <h6 class="form-signin-heading">Email</h6>
-            <div class="form-group">
+            <h2 class="form-signin-heading">Forgotten Password ? </h2>
+            <span class="text-muted">Enter your registered email to reset your password:</span>
+            <div class="form-group mt-2">
                 <label for="email" class="sr-only">Email address</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required>
-                
-            </div>
-
-            <h6 class="form-signin-heading">New Password</h6>
-            <div class="form-group">
-                <label for="password" class="sr-only">Password</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="New Password"  required autocomplete="new-password">
-                
-            </div>
-
-            <h6 class="form-signin-heading">Confirm Password</h6>
-            <div class="form-group">
-                <label for="password_confirmation" class="sr-only">Confirm Password</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
             </div>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('Reset Password') }}</button>
+
+            <div class="mt-4">
+                <span>
+                    Don't have an account yet ?
+                </span>
+                <a href="{{ route('register') }}" class="text-primary">Sign Up</a>
+            </div>
         </form>
+
     </div>
-    <!--========== end===========-->
+    <!--===========login end===========-->
 
 
     <!-- Placed js at the end of the page so the pages load faster -->
@@ -77,13 +68,15 @@
     <script src="{{asset('assets/vendor/popper.min.js')}}"></script>
     <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/vendor/jquery-ui-touch/jquery.ui.touch-punch-improved.js')}}"></script>
-    <script class="include" type="text/javascript" src="{{asset('assets/vendor/jquery.dcjqaccordion.2.7.js')}}"></script>
+    <script class="{{asset('include" type="text/javascript" src="assets/vendor/jquery.dcjqaccordion.2.7.js')}}"></script>
     <script src="{{asset('assets/vendor/jquery.scrollTo.min.js')}}"></script>
 
     <!--[if lt IE 9]>
     <script src="assets/vendor/modernizr.js"></script>
     <![endif]-->
 
+    <!--init scripts-->
+    <script src="{{asset('assets/js/scripts.js')}}"></script>
 
 </body>
 </html>
