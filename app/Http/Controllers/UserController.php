@@ -14,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        // dd(123);
+        // 
+        $users = User::all();
+        return view('user.list', compact('users','users'));
     }
 
     /**
@@ -24,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -36,6 +38,21 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'Name'=>'required',
+            'Email'=> 'required',
+            'Passowrd' => 'required'
+            
+        ]);
+ 
+        $user = new User([
+            'name' => $request->get('Name'),
+            'email'=> $request->get('Email'),
+            'password'=> $request->get('Password')
+        ]);
+ 
+        $user->save();
+        return redirect('/user')->with('success', 'User has been added');
     }
 
     /**
@@ -44,9 +61,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
+        $user = \App\Models\user::findOrFail($id);
+        return view('user.show',compact('user'));
     }
 
     /**
@@ -55,9 +74,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
         //
+        $user = \App\Models\User::findOrFail($id);
+        return view('user.edit',compact('user'));
     }
 
     /**
@@ -67,9 +88,24 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'Name'=>'required',
+            'Email'=> 'required',
+            'Passowrd' => 'required'
+        ]);
+ 
+ 
+        $user = \App\Models\User::findOrFail($id);
+        $user->name = $request->get('Name');
+        $user->email = $request->get('Email');
+        $user->Password = $request->get('Password');
+ 
+        $user->update();
+ 
+        return redirect('/user')->with('success', 'User  updated successfully');
     }
 
     /**
@@ -78,8 +114,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
         //
+        $user = \App\Models\User::findOrFail($id);
+        $user->delete();
+        return redirect('/user')->with('success', 'User deleted successfully');
     }
 }

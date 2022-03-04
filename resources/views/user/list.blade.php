@@ -1,66 +1,8 @@
 @extends('layouts.app')
 
 @section('mainsection')
- <!--===========app body start===========-->
-<div class="app-body">
-
-<!--left sidebar start-->
-    <div class="left-sidebar">
-        <nav class="sidebar-menu">
-            <ul id="nav-accordion">
-                <li class="sub-menu">
-                    <a href="{{route('dashboard')}}" >
-                        <i class="ti-home"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="{{ route('user') }}" class="active">
-                        <i class=" icon-people"></i>
-                        <span>Users</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="ti-archive"></i>
-                        <span>Portlets</span>
-                    </a>  
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class=" ti-pencil-alt"></i>
-                        <span>Icons</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="icon-calendar"></i>
-                        <span>Calendar </span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class=" icon-grid"></i>
-                        <span>Data Tables</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class=" ti-pie-chart"></i>
-                        <span>Charts</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-<!--left sidebar end-->
-
 <!--main contents start-->
-    <main class="main-content">
+<main class="main-content">
         <!--page title start-->
         <div class="page-title">
             <div class="container-fluid p-0">
@@ -69,36 +11,67 @@
                         <h4 class="mb-0"> User Crud
                         </h4>
                         <ol class="breadcrumb mb-0 pl-0 pt-1 pb-0">
-                            <li class="breadcrumb-item"><a href="#" class="default-color">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">Home</a></li>
                             <li class="breadcrumb-item active">User</li>
                         </ol>
                     </div>
                     <div class="col-4">
                         <div class="btn-group float-right ml-2">
-                            <button class="btn btn-primary btn-sm  mt-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Settings
-                            </button>
-                            
-                        </div>
-
-                        <div class="btn-group float-right">
-                            <button class="btn btn-danger btn-sm  mt-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Quick Action
-                            </button>
-                            
+                        <a class="btn btn-info" href="{{ route('user.create') }}">Add</a> 
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!--page title end-->
-
-    </main>
+    @section('content')
+        <div class="row">
+            <div class=" col-sm-12">
+                <div class="card card-shadow mb-4">
+                    <div class="card-header">
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success">
+                                <p>{{ $message }}</p>
+                            </div>
+                            @endif
+                            <table class="table table-bordered">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <!-- <th>Password</th> -->
+                                            <th width="280px">Action</th>
+                                        </tr>
+                                        @php
+                                            $i = 0;
+                                        @endphp
+                                        @foreach ($users as $user)
+                                            <tr>
+                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $user->email }}</td>
+                                                <!-- <td>{{ $user->password }}</td> -->
+                                                <td>
+                                                    <form action="{{ route('user.destroy',$user->id) }}" method="POST">
+                                                        <a class="btn btn-info" href="{{ route('user.show',$user->id) }}">Show</a>
+                                                        <a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a>
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button onclick="return confirm('Are you sure to delete this?')" type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>   
+</main>
 <!--main contents end-->
-</div>
-<!--===========app body end===========-->
 @endsection
+@endsection
+
 
 @push('script')
 

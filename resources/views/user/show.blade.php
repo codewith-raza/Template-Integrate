@@ -1,65 +1,57 @@
 @extends('layouts.app')
-
 @section('mainsection')
- 
-
 <!--main contents start-->
-    <main class="main-content">
+<main class="main-content">
         <!--page title start-->
-        <div class="page-title">
-            <div class="container-fluid p-0">
-                <div class="row">
+    <div class="page-title">
+        <div class="container-fluid p-0">
+            <div class="row">
                     <div class="col-8">
-                        <h4 class="mb-0"> Dashboard
+                        <h4 class="mb-0"> User Crud
                         </h4>
                         <ol class="breadcrumb mb-0 pl-0 pt-1 pb-0">
-                            <li class="breadcrumb-item"><a href="#" class="default-color">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">Home</a></li>
+                            <li class="breadcrumb-item active">User</li>
                         </ol>
                     </div>
                     <div class="col-4">
                         <div class="btn-group float-right ml-2">
-                            <button class="btn btn-primary btn-sm  mt-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Settings
-                            </button>
-                            
+                        <a class="btn btn-info" href="{{ url('user') }}"> Back</a>
                         </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!--page title end--> 
 
-                        <div class="btn-group float-right">
-                            <button class="btn btn-danger btn-sm  mt-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Quick Action
-                            </button>
-                            
-                        </div>
+    @section('content')
+    <div class="row">
+        <div class=" col-sm-12">
+            <div class="card card-shadow mb-4">
+                <div class="card-header">
+                    <div class="card-title">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Name:</th>
+                                    <td>{{ $user->name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>{{ $user->email }}</td>
+                                </tr>
+                                <!-- <tr>
+                                    <th>Password:</th>
+                                    <td>{{ $user->password }}</td>
+                                </tr> -->
+                            </table>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!--page title end-->
-         <!-- state start-->
-         <div class="row">
-            <div class=" col-sm-12">
-                <div class="card card-shadow mb-4">
-                    <div class="card-header">
-                        <div class="card-title">
-                             Multiple Statistics
-                        </div>
-                     </div>
-                     <div class="card-body">
-                                <div id="multi-sates">
-                                    <div id="multi-states-container" style="height: 350px">
-                                    </div>
-                                </div>
-                            </div>
-                </div>
-            </div>
-        </div>
-        <!-- state end-->
-
-    </main>
+    </div>
+</main>
 <!--main contents end-->
-
+@endsection
 @endsection
 
 @push('script')
@@ -107,4 +99,3 @@
     <script src="{{asset('assets/js/scripts.js')}}"></script>
 
 @endpush
-

@@ -22,7 +22,11 @@ Route::middleware(['auth', 'verified'])->group( function() {
         return view('dashboard');
     })->name('dashboard');
     
-    Route::resource('user',UserController::class);
+    // Route::get('/user', function () {
+    //     return view('user');
+    // })->name('user');
+
+    Route::resource('/user', UserController::class);
 });
 
 
