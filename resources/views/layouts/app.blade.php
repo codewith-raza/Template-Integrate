@@ -7,7 +7,7 @@
     <meta name="author" content="MHS">
 
     <!--favicon icon-->
-    <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('assets/img/main.png')}}">
 
     <title>Diverse Home</title>
 
@@ -43,8 +43,8 @@
 
     <!--brand start-->
     <div class="navbar-brand">
-        <a class="" href="index.html">
-            <img src="{{asset('assets/img/logo-dark.png')}}" srcset="assets/img/logo-dark@2x.png 2x" alt="">
+        <a class="" href="{{route('dashboard')}}">
+            <img src="{{asset('assets/img/main.png')}}" srcset="assets/img/logo-dark@2x.png 2x" style="width:40px;"  alt="">
         </a>
     </div>
     <!--brand end-->
@@ -180,13 +180,13 @@
             <nav class="sidebar-menu">
                 <ul id="nav-accordion">
                     <li class="sub-menu">
-                        <a href="{{ route('dashboard') }}" class="active">
+                        <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'active' : '' }}">
                             <i class="ti-home"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="sub-menu">
-                        <a href="{{ url('user') }}">
+                        <a href="{{ url('user') }}" class="{{ request()->is('user') ? 'active' : '' }}">
                             <i class=" icon-people"></i>
                             <span>Users</span>
                         </a>

@@ -41,8 +41,8 @@ class UserController extends Controller
         $request->validate([
             'Name'=>'required',
             'Email'=> 'required',
-            'Passowrd' => 'required'
-            
+            'Password' => 'required'
+
         ]);
  
         $user = new User([

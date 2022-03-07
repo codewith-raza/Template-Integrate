@@ -27,7 +27,7 @@
 
 @section('content')
     <div class="row">
-        <div class=" col-sm-8">
+        <div class=" col-sm-10">
             <div class="card card-shadow mb-4">
                 <div class="card-header">
                     <div class="card-title">
@@ -52,10 +52,10 @@
                                 <label for="Email"> Email:</label>
                                 <input type="text" class="form-control" id="Email" placeholder="Enter Your Email" name="Email" value="{{ $user->email }}">
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="Password">Password:</label>
-                                <textarea class="form-control" id="Password" name="Password" rows="10" placeholder="Enter Password">{{ $user->password }}</textarea>
-                            </div>
+                                <input class="form-control" id="Password" name="Password" placeholder="Enter Password" value = "{{ $user->password }}">
+                            </div> --}}
                             <button type="submit" class="btn btn-danger">Submit</button>
                         </form>
                     </div>
