@@ -51,7 +51,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="Password">Password:</label>
-                                <textarea class="form-control" id="Password" name="Password" rows="10" placeholder="Password"></textarea>
+                                <input class="form-control" id="Password" name="Password" placeholder="Password"></input>
                             </div>
                             <button type="submit" class="btn btn-danger">Submit</button>
                         </form>

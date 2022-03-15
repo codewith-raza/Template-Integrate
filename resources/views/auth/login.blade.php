@@ -7,7 +7,7 @@
     <meta name="author" content="MHS">
 
     <!--favicon icon-->
-    <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('assets/img/main.png')}}">
 
     <title>Login Page</title>
 
@@ -40,7 +40,7 @@
         <form class="form-signin" method="POST" action="{{ route('login') }}">
             @csrf
             <a href="index.html" class="brand text-center">
-                <img src="{{asset('assets/img/logo-dark.png')}}" srcset="assets/img/logo-dark@2x.png 2x" alt=""/>
+                <img src="{{asset('assets/img/main.png')}}" srcset="assets/img/logo-dark@2x.png 2x" style="width:80px;" alt=""/>
             </a>
             <h2 class="form-signin-heading">Please sign in</h2>
             <div class="form-group">
