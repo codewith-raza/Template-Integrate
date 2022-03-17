@@ -64,6 +64,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        
         $user = \App\Models\user::findOrFail($id);
         return view('user.show',compact('user'));
     }
@@ -121,4 +122,5 @@ class UserController extends Controller
         $user->delete();
         return redirect('/user')->with('success', 'User deleted successfully');
     }
+   
 }

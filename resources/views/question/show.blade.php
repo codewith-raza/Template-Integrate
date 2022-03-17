@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-4">
                         <div class="btn-group float-right ml-2">
-                        <a class="btn btn-info" href="{{ url('user') }}"> Back</a>
+                        <a class="btn btn-info" href="{{ url('question') }}"> Back</a>
                         </div>
                     </div>
             </div>
@@ -29,25 +29,27 @@
         <div class=" col-sm-12">
             <div class="card card-shadow mb-4">
                 <div class="card-header">
-                        <table class="table table-bordered">
-                            <tr>
+                    <div class="card-title">
+                            <table class="table table-bordered">
+                                <tr>
                                     <th>id:</th>
-                                    <td>{{ $user->id }}</td>
-                            </tr>
-                                <tr>
-                                    <th>Name:</th>
-                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $question->id }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Email:</th>
-                                    <td>{{ $user->email }}</td>
+                                    <th>Title:</th>
+                                    <td>{{ $question->title }}</td>
                                 </tr>
-
-                        </table>
+                                <tr>
+                                    <th>Description:</th>
+                                    <td>{{ $question->description }}</td>
+                                </tr>
+                            </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+        
 </main>
 <!--main contents end-->
 @endsection

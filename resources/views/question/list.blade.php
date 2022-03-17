@@ -1,57 +1,73 @@
 @extends('layouts.app')
+
 @section('mainsection')
 <!--main contents start-->
 <main class="main-content">
         <!--page title start-->
-    <div class="page-title">
-        <div class="container-fluid p-0">
-            <div class="row">
+        <div class="page-title">
+            <div class="container-fluid p-0">
+                <div class="row">
                     <div class="col-8">
-                        <h4 class="mb-0"> User Crud
+                        <h4 class="mb-0"> Uesr Questions
                         </h4>
                         <ol class="breadcrumb mb-0 pl-0 pt-1 pb-0">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">Home</a></li>
-                            <li class="breadcrumb-item active">User</li>
+                            <li class="breadcrumb-item active">Question</li>
                         </ol>
                     </div>
                     <div class="col-4">
                         <div class="btn-group float-right ml-2">
-                        <a class="btn btn-info" href="{{ url('user') }}"> Back</a>
+                        <a class="btn btn-info" href="{{ route('question.create') }}">Add</a> 
                         </div>
                     </div>
-            </div>
-        </div>
-    </div>
-    <!--page title end--> 
-
-    @section('content')
-    <div class="row">
-        <div class=" col-sm-12">
-            <div class="card card-shadow mb-4">
-                <div class="card-header">
-                        <table class="table table-bordered">
-                            <tr>
-                                    <th>id:</th>
-                                    <td>{{ $user->id }}</td>
-                            </tr>
-                                <tr>
-                                    <th>Name:</th>
-                                    <td>{{ $user->name }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Email:</th>
-                                    <td>{{ $user->email }}</td>
-                                </tr>
-
-                        </table>
                 </div>
             </div>
         </div>
-    </div>
+        <!--page title end-->
+    @section('content')
+        <div class="row">
+            <div class=" col-sm-12">
+                <div class="card card-shadow mb-4">
+                    <div class="card-header">
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success">
+                                <p>{{ $message }}</p>
+                            </div>
+                            @endif
+                            <table class="table table-bordered">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>title</th>
+                                            <th>description</th>
+                                            <th width="280px">Action</th>
+                                        </tr>
+                                        @php
+                                            $i = 0;
+                                        @endphp
+                                        @foreach ($questions as $question)
+                                            <tr>
+                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $question->title }}</td>
+                                                <td>{{ $question->description }}</td>
+                                                <td>
+                                                    <form action="{{ route('question.destroy',$question->id) }}" method="POST">
+                                                        <a class="btn btn-info" href="{{ route('question.show',$question->id) }}">Show</a>
+                                                        @csrf
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                       
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>   
 </main>
 <!--main contents end-->
 @endsection
 @endsection
+
 
 @push('script')
 
@@ -98,3 +114,4 @@
     <script src="{{asset('assets/js/scripts.js')}}"></script>
 
 @endpush
+

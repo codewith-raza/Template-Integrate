@@ -2,48 +2,67 @@
 @section('mainsection')
 <!--main contents start-->
 <main class="main-content">
-        <!--page title start-->
-    <div class="page-title">
-        <div class="container-fluid p-0">
-            <div class="row">
+    <!--page title start-->
+        <div class="page-title">
+            <div class="container-fluid p-0">
+                <div class="row">
                     <div class="col-8">
-                        <h4 class="mb-0"> User Crud
+                        <h4 class="mb-0"> Question
                         </h4>
                         <ol class="breadcrumb mb-0 pl-0 pt-1 pb-0">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">Home</a></li>
-                            <li class="breadcrumb-item active">User</li>
+                            <li class="breadcrumb-item active">Question</li>
                         </ol>
                     </div>
                     <div class="col-4">
                         <div class="btn-group float-right ml-2">
-                        <a class="btn btn-info" href="{{ url('user') }}"> Back</a>
+                        <a class="btn btn-info" href="{{ url('question') }}"> Back</a> 
                         </div>
                     </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!--page title end--> 
-
+    <!--page title end-->
     @section('content')
     <div class="row">
         <div class=" col-sm-12">
             <div class="card card-shadow mb-4">
                 <div class="card-header">
-                        <table class="table table-bordered">
-                            <tr>
-                                    <th>id:</th>
-                                    <td>{{ $user->id }}</td>
-                            </tr>
-                                <tr>
-                                    <th>Name:</th>
-                                    <td>{{ $user->name }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Email:</th>
-                                    <td>{{ $user->email }}</td>
-                                </tr>
+                    <div class="card-title">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form action="{{ route('question.store') }}" method="POST">
+                            @csrf
+                            @method('post')
+                            <div class="form-group">
+                                <label for="title"> Title:</label>
+                                <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="descripntion"> Description:</label>
+                                <input type="text" class="form-control" id="description" placeholder="Enter Description" name="description">
+                            </div>
+                            <div class="form-group">
+                                <label for="user" class="form-label">Select User</label>
+                                <select class="form-control" name="user" id="user">
+                                    <option hidden>Select one User</option>
+                                    @foreach ($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
-                        </table>
+                            <button type="submit" class="btn btn-danger">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,6 +71,7 @@
 <!--main contents end-->
 @endsection
 @endsection
+
 
 @push('script')
 

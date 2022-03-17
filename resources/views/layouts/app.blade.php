@@ -8,7 +8,6 @@
 
     <!--favicon icon-->
     <link rel="icon" type="image/png" href="{{asset('assets/img/main.png')}}">
-
     <title>Diverse Home</title>
 
     <!--google font-->
@@ -44,7 +43,7 @@
     <!--brand start-->
     <div class="navbar-brand">
         <a class="" href="{{route('dashboard')}}">
-            <img src="{{asset('assets/img/main.png')}}" srcset="assets/img/logo-dark@2x.png 2x" style="width:40px;"  alt="">
+            <img src="{{asset('assets/img/main.png')}}" srcset="assets/img/logo-dark@2x.png 2x" style="width: 200px;"  alt="">
         </a>
     </div>
     <!--brand end-->
@@ -193,9 +192,9 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:;">
+                        <a href="{{ url('question') }}" class="{{ request()->is('question') ? 'active' : '' }}">
                             <i class="ti-archive"></i>
-                            <span>Portlets</span>
+                            <span>Questions</span>
                         </a>  
                     </li>
 
@@ -212,19 +211,7 @@
                             <span>Calendar </span>
                         </a>
                     </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class=" icon-grid"></i>
-                            <span>Data Tables</span>
-                        </a>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class=" ti-pie-chart"></i>
-                            <span>Charts</span>
-                        </a>
-                    </li>
+                    
                 </ul>
             </nav>
         </div>
