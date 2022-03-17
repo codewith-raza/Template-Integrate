@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ListsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,11 @@ Route::middleware(['auth', 'verified'])->group( function() {
     // })->name('user');
 
     Route::resource('/user', UserController::class);
+
+    Route::resource('/question', QuestionController::class);
+    Route::resource('/lists', ListsController::class);
+    
+    Route::get('/lists', [UserController::class, 'lists']);
 });
 
 

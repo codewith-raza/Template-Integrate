@@ -2,10 +2,10 @@
 @section('mainsection')
 <!--main contents start-->
 <main class="main-content">
-    <!--page title start-->
-        <div class="page-title">
-            <div class="container-fluid p-0">
-                <div class="row">
+        <!--page title start-->
+    <div class="page-title">
+        <div class="container-fluid p-0">
+            <div class="row">
                     <div class="col-8">
                         <h4 class="mb-0"> User Crud
                         </h4>
@@ -16,55 +16,44 @@
                     </div>
                     <div class="col-4">
                         <div class="btn-group float-right ml-2">
-                        <a class="btn btn-info" href="{{ url('user') }}"> Back</a> 
+                        <a class="btn btn-info" href="{{ url('question') }}"> Back</a>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
-    <!--page title end-->
+    </div>
+    <!--page title end--> 
+
     @section('content')
     <div class="row">
         <div class=" col-sm-12">
             <div class="card card-shadow mb-4">
                 <div class="card-header">
                     <div class="card-title">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                        <form action="{{ route('user.store') }}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <label for="Name"> Name:</label>
-                                <input type="text" class="form-control" id="Name" placeholder="Enter Your Name" name="Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="Email"> Email:</label>
-                                <input type="text" class="form-control" id="Email" placeholder="Enter Your Email" name="Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="Password">Password:</label>
-                                <input class="form-control" id="Password" name="Password" placeholder="Password"></input>
-                            </div>
-                            <button type="submit" class="btn btn-danger">Submit</button>
-                        </form>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>id:</th>
+                                    <td>{{ $question->id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Title:</th>
+                                    <td>{{ $question->title }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Description:</th>
+                                    <td>{{ $question->description }}</td>
+                                </tr>
+                            </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+        
 </main>
 <!--main contents end-->
 @endsection
 @endsection
-
 
 @push('script')
 

@@ -29,8 +29,11 @@
         <div class=" col-sm-12">
             <div class="card card-shadow mb-4">
                 <div class="card-header">
-                    <div class="card-title">
-                            <table class="table table-bordered">
+                        <table class="table table-bordered">
+                            <tr>
+                                    <th>id:</th>
+                                    <td>{{ $user->id }}</td>
+                            </tr>
                                 <tr>
                                     <th>Name:</th>
                                     <td>{{ $user->name }}</td>
@@ -39,12 +42,7 @@
                                     <th>Email:</th>
                                     <td>{{ $user->email }}</td>
                                 </tr>
-                                <!-- <tr>
-                                    <th>Password:</th>
-                                    <td>{{ $user->password }}</td>
-                                </tr> -->
-                            </table>
-                    </div>
+                        </table>
                 </div>
             </div>
         </div>

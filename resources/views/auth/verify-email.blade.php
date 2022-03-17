@@ -7,7 +7,7 @@
     <meta name="author" content="MHS">
 
     <!--favicon icon-->
-    <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('assets/img/main.png')}}">
 
     <title>Verify Email Page</title>
     
@@ -43,7 +43,7 @@
             @csrf
             
             <a href="index.html" class="brand text-center">
-                    <img src="{{asset('assets/img/logo-dark.png')}}" srcset="assets/img/logo-dark@2x.png 2x" alt=""/>
+                    <img src="{{asset('assets/img/main.png')}}" srcset="assets/img/logo-dark@2x.png 2x" style="width:80px;" alt=""/>
             </a>
             <div class="mb-4 text-sm text-gray-600">
                 {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
