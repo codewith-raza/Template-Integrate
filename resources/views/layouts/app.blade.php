@@ -7,8 +7,7 @@
     <meta name="author" content="MHS">
 
     <!--favicon icon-->
-    <link rel="icon" type="image/png" href="{{asset('assets/img/main2.png')}}">
-
+    <link rel="icon" type="image/png" href="{{asset('assets/img/main.png')}}">
     <title>Diverse Home</title>
 
     <!--google font-->

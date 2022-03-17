@@ -42,6 +42,7 @@
                                     <th>Email:</th>
                                     <td>{{ $user->email }}</td>
                                 </tr>
+
                         </table>
                 </div>
             </div>
