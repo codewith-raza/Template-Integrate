@@ -24,6 +24,7 @@
         </div>
     <!--page title end-->
     @section('content')
+ <div class="container-fluid">
     <div class="row">
         <div class=" col-sm-12">
             <div class="card card-shadow mb-4">
@@ -60,6 +61,7 @@
             </div>
         </div>
     </div>
+ </div>
 </main>
 <!--main contents end-->
 @endsection
