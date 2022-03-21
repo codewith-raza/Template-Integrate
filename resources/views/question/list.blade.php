@@ -25,6 +25,7 @@
         </div>
         <!--page title end-->
     @section('content')
+    <div class="container-fluid">
         <div class="row">
             <div class=" col-sm-12">
                 <div class="card card-shadow mb-4">
@@ -37,8 +38,9 @@
                             <table class="table table-bordered">
                                         <tr>
                                             <th>No</th>
-                                            <th>title</th>
-                                            <th>description</th>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>User Name</th>
                                             <th width="280px">Action</th>
                                         </tr>
                                         @php
@@ -49,10 +51,13 @@
                                                 <td>{{ ++$i }}</td>
                                                 <td>{{ $question->title }}</td>
                                                 <td>{{ $question->description }}</td>
+                                                <td>{{ Auth::user()->name }}</td>
                                                 <td>
                                                     <form action="{{ route('question.destroy',$question->id) }}" method="POST">
                                                         <a class="btn btn-info" href="{{ route('question.show',$question->id) }}">Show</a>
                                                         @csrf
+                                                        @method('DELETE')
+                                                        <button onclick="return confirm('Are you sure to delete this?')" type="submit" class="btn btn-danger">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -62,7 +67,8 @@
                     </div>
                 </div>
             </div>
-        </div>   
+        </div> 
+    </div>  
 </main>
 <!--main contents end-->
 @endsection

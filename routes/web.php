@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ListsController;
+use App\Http\Controllers\CountriesController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +33,17 @@ Route::middleware(['auth', 'verified'])->group( function() {
     Route::resource('/user', UserController::class);
 
     Route::resource('/question', QuestionController::class);
+
     Route::resource('/lists', ListsController::class);
+
+    Route::post('countries/reorder', [CountriesController::class,'reorder'])->name('countries.reorder');
+    Route::delete('countries/destroy', [CountriesController::class,'massDestroy'])->name('countries.massDestroy');
+    Route::resource('/countries', CountriesController::class);
     
     Route::get('/lists', [UserController::class, 'lists']);
+
+    Route::get('post',[PostController::class,'index'])->name('post');
+    Route::post('post-sortable',[PostController::class,'update'])->name('post-sortable');
 });
 
 

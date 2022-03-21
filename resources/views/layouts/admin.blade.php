@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="MHS">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!--favicon icon-->
     <link rel="icon" type="image/png" href="{{asset('assets/img/main.png')}}">
     <title>Diverse Home</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <!--google font-->
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  
 
-    
 
     <!--common style-->
     <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -34,18 +33,13 @@
     <!--custom css-->
     <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="assets/vendor/html5shiv.js"></script>
-    <script src="assets/vendor/respond.min.js"></script>
-    <![endif]-->
+    
 </head>
-<body class="app header-fixed left-sidebar-fixed right-sidebar-fixed right-sidebar-overlay right-sidebar-hidden">
 
+<body class="app header-fixed sidebar-fixed aside-menu-fixed pace-done sidebar-lg-show">
    <!--===========header start===========-->
 <header class="app-header navbar">
-
-    <!--brand start-->
+  <!--brand start-->
     <div class="navbar-brand">
         <a class="" href="{{route('dashboard')}}">
             <img src="{{asset('assets/img/main.png')}}" srcset="assets/img/logo-dark@2x.png 2x" style="width: 200px;"  alt="">
@@ -170,19 +164,18 @@
             <a class="nav-link navbar-toggler right-sidebar-toggler" href="#"><i class="icon-options-vertical"></i></a>
         </li> 
     </ul>
-
     <!--right side nav end-->
-
 </header>
 <!--===========header end===========-->
-
+  
 <!--===========app body start===========-->
 <div class="app-body">
+      
+       <!--left sidebar start-->
 
-    <!--left sidebar start-->
         <div class="left-sidebar">
-            <nav class="sidebar-menu">
-                <ul id="nav-accordion">
+          <nav class="sidebar-menu">
+              <ul id="nav-accordion">
                     <li class="sub-menu">
                         <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'active' : '' }}">
                             <i class="ti-home"></i>
@@ -204,44 +197,50 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="{{ route('post') }}" class="{{ request()->is('post') ? 'active' : '' }}">
-                            <i class="icon-calendar"></i>
-                            <span>Posts </span>
+                        <a href="countries" class="{{ request()->is('countries') ? 'active' : '' }}">
+                            <i class=" ti-pencil-alt"></i>
+                            <span>Contries</span>
                         </a>
                     </li>
-                    
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="icon-calendar"></i>
+                            <span>Calendar </span>
+                        </a>
+                    </li> 
                 </ul>
             </nav>
         </div>
+
     <!--left sidebar end-->
 
-    @yield('mainsection')
+  @yield('mainsection')
 
-    @yield('content')
+  @yield('content')
 
 </div>
-
 <!--===========app body end===========-->
 
-    <!--===========footer start===========-->
-    <footer class="app-footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-8">
-                <?php echo date("Y"); ?> © Copyright All Rights Reserved
-                </div>
-                <div class="col-4">
-                    <a href="#" class="float-right back-top">
-                        <i class=" ti-arrow-circle-up"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--===========footer end===========-->
+      <!--===========footer start===========-->
+      <footer class="app-footer">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-8">
+                  <?php echo date("Y"); ?> © Copyright All Rights Reserved
+                  </div>
+                  <div class="col-4">
+                      <a href="#" class="float-right back-top">
+                          <i class=" ti-arrow-circle-up"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </footer>
+      <!--===========footer end===========-->
 
-
-    @stack('script')
+  
+      @stack('script')
 
 </body>
 </html>
